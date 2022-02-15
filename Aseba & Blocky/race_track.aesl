@@ -1,0 +1,160 @@
+<!DOCTYPE aesl-source>
+<network>
+
+<!--list of global events-->
+
+<!--list of constants-->
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+<!--node thymio-II-->
+<node nodeId="51938" name="thymio-II">
+
+onevent prox
+	if prox.ground.delta[0] &lt; 400 then
+		motor.left.target = 300
+		motor.right.target = 0
+		call leds.bottom.left(6,6,32)
+	elseif prox.ground.delta[1] &lt; 400 then
+		motor.left.target = 0
+		motor.right.target = 300
+		call leds.bottom.right(6,6,32)
+	else
+		motor.left.target = 300
+		motor.right.target = 300
+		call leds.top(13,32,19)
+	end
+	if prox.ground.delta[0] &lt; 400 and prox.ground.delta[0] &lt; 400 then
+		motor.left.target = -300
+		motor.right.target = -300
+		call leds.top(32,0,0)
+	end
+
+
+<toolsPlugins>
+<ThymioBlockly>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="thymio_event_update" x="163" y="-162">
+    <field name="EVENT">prox</field>
+    <statement name="HANDLER">
+      <block type="controls_if">
+        <mutation elseif="1" else="1"></mutation>
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="thymio_prox_ground_check">
+            <field name="SENSOR">prox.ground.delta[0]</field>
+            <field name="MODE">BLACK</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="thymio_motors_start">
+            <field name="COMMAND">TURNRIGHT</field>
+            <value name="SPEED">
+              <shadow type="math_number">
+                <field name="NUM">300</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="thymio_led">
+                <field name="LED">leds.bottom.left</field>
+                <field name="COLOR">#3333ff</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="thymio_prox_ground_check">
+            <field name="SENSOR">prox.ground.delta[1]</field>
+            <field name="MODE">BLACK</field>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="thymio_motors_start">
+            <field name="COMMAND">TURNLEFT</field>
+            <value name="SPEED">
+              <shadow type="math_number">
+                <field name="NUM">300</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="thymio_led">
+                <field name="LED">leds.bottom.right</field>
+                <field name="COLOR">#3333ff</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="thymio_motors_start">
+            <field name="COMMAND">FORWARD</field>
+            <value name="SPEED">
+              <shadow type="math_number">
+                <field name="NUM">300</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="thymio_led">
+                <field name="LED">leds.top</field>
+                <field name="COLOR">#66ff99</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if">
+            <value name="IF0">
+              <shadow type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </shadow>
+              <block type="logic_operation">
+                <field name="OP">AND</field>
+                <value name="A">
+                  <shadow type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                  </shadow>
+                  <block type="thymio_prox_ground_check">
+                    <field name="SENSOR">prox.ground.delta[0]</field>
+                    <field name="MODE">BLACK</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="logic_boolean">
+                    <field name="BOOL">TRUE</field>
+                  </shadow>
+                  <block type="thymio_prox_ground_check">
+                    <field name="SENSOR">prox.ground.delta[0]</field>
+                    <field name="MODE">BLACK</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="thymio_motors_start">
+                <field name="COMMAND">BACKWARD</field>
+                <value name="SPEED">
+                  <shadow type="math_number">
+                    <field name="NUM">300</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="thymio_led">
+                    <field name="LED">leds.top</field>
+                    <field name="COLOR">#ff0000</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
+</ThymioBlockly>
+</toolsPlugins>
+</node>
+
+</network>

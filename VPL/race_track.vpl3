@@ -1,0 +1,198 @@
+{
+	"basicBlocks": [
+		"init",
+		"button 1",
+		"button",
+		"remote control arrows",
+		"acc side",
+		"acc upside down",
+		"roll",
+		"yaw",
+		"pitch",
+		"tap",
+		"fall",
+		"clap",
+		"ground mean",
+		"ground",
+		"ground 1",
+		"horiz prox",
+		"horiz prox front adv",
+		"horiz prox back adv",
+		"color 8 state",
+		"bottom color 8 state",
+		"state 256",
+		"counter comparison",
+		"timer",
+		"move",
+		"motor",
+		"top color",
+		"top color 8",
+		"bottom color",
+		"bottom color 8",
+		"set state 256",
+		"notes",
+		"notes with speed",
+		"play"
+	],
+	"basicMultiEvent": true,
+	"disabledUI": [
+		"src:language",
+		"vpl:exportToHTML",
+		"vpl:flash"
+	],
+	"program": [
+		{
+			"blocks": [
+				{
+					"name": "ground",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						1,
+						1
+					]
+				},
+				{
+					"name": "motor",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						0.6030350060355234,
+						0.6030350060355234
+					]
+				}
+			],
+			"disabled": false,
+			"locked": false
+		},
+		{
+			"blocks": [
+				{
+					"name": "ground 1",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						1,
+						-1,
+						0.5
+					]
+				},
+				{
+					"name": "motor",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						-0.3560794554069261,
+						0.3560794554069261
+					]
+				},
+				{
+					"name": "top color",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						1,
+						0.47878289595508483,
+						0
+					]
+				}
+			],
+			"disabled": false,
+			"locked": false
+		},
+		{
+			"blocks": [
+				{
+					"name": "ground 1",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						-1,
+						1,
+						0.5
+					]
+				},
+				{
+					"name": "motor",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						0.39549511820592853,
+						-0.39549511820592853
+					]
+				},
+				{
+					"name": "top color",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						0,
+						0.9824530216504089,
+						1
+					]
+				}
+			],
+			"disabled": false,
+			"locked": false
+		},
+		{
+			"blocks": [
+				{
+					"name": "horiz prox front adv",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						0,
+						1,
+						1,
+						1,
+						0,
+						0.2
+					]
+				},
+				{
+					"name": "motor",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						-0.4948225884594243,
+						-0.4948225884594243
+					]
+				}
+			],
+			"disabled": false,
+			"locked": false
+		},
+		{
+			"blocks": [
+				{
+					"name": "horiz prox back adv",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						1,
+						1,
+						0.2
+					]
+				},
+				{
+					"name": "motor",
+					"disabled": false,
+					"locked": false,
+					"param": [
+						0.6153852470458783,
+						0.6153852470458783
+					]
+				}
+			],
+			"disabled": false,
+			"locked": false
+		},
+		{
+			"blocks": [],
+			"disabled": false,
+			"locked": false
+		}
+	],
+	"code": null
+}
