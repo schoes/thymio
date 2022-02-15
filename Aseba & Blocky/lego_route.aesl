@@ -9,7 +9,15 @@
 
 
 <!--node The Roby-->
-<node nodeId="{839d60c8-d353-44b0-88bb-d86f41c494f7}" name="The Roby"><![CDATA[onevent prox
+<node nodeId="{839d60c8-d353-44b0-88bb-d86f41c494f7}" name="The Roby"><![CDATA[var randomTimeout
+var myrand_m=000            #only values between -32768 and 32767 are allowed
+var myrand_n=500    
+sub myrand
+call math.rand(randomTimeout)
+randomTimeout = abs(randomTimeout % (myrand_m+1 - myrand_n)) + myrand_n
+
+
+onevent prox
 	when prox.horizontal[0] > 2000 do
 		motor.left.target = DEFAULT_SPEED
 		motor.right.target = -REDUCED_SPEED
@@ -64,13 +72,15 @@
 		motor.left.target = STOP_MOTOR
 		motor.right.target = STOP_MOTOR
 		call leds.top(32,0,0)
-		timer.period[0] = 1000
+		callsub myrand
+		timer.period[0] = randomTimeout
 	end
 	when prox.ground.delta[1] < 100 do
 		motor.left.target = STOP_MOTOR
 		motor.right.target = STOP_MOTOR
 		call leds.top(32,0,0)
-		timer.period[0] = 1000
+		callsub myrand
+		timer.period[0] = randomTimeout
 	end
 
 
